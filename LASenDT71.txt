@@ -1,0 +1,36 @@
+mintpy.load.processor      = aria  #[isce, aria, snap, gamma, roipac], auto for isce
+mintpy.load.updateMode     = auto  #[yes / no], auto for yes, skip re-loading if HDF5 files are complete
+mintpy.load.compression    = auto  #[gzip / lzf / no], auto for no.
+
+##---------interferogram datasets:
+mintpy.load.unwFile        = ../stack/unwrapStack.vrt
+mintpy.load.corFile        = ../stack/cohStack.vrt
+mintpy.load.connCompFile   = ../stack/connCompStack.vrt
+
+##---------geometry datasets:
+mintpy.load.demFile        = ../DEM/SRTM_3arcsec.dem
+mintpy.load.incAngleFile   = ../incidenceAngle/20150607_20150514.vrt
+mintpy.load.azAngleFile    = ../azimuthAngle/20150607_20150514.vrt
+mintpy.load.waterMaskFile  = ../mask/watermask.msk
+
+#mintpy.reference.yx                          = auto
+mintpy.network.coherenceBased                = no
+mintpy.networkInversion.weightFunc           = no
+mintpy.network.tempBaseMax     = auto  #[1-inf, no], auto for no, max temporal baseline in days
+
+mintpy.topographicResidual.pixelwiseGeometry = no
+mintpy.troposphericDelay.method              = no
+mintpy.deramp                                = no
+mintpy.topographicResidual                   = no
+
+
+# network modification
+mintpy.network.excludeDate     = auto  #[20080520,20090817 / no], auto for no
+mintpy.network.minCoherence    = 0.5  #[0.0-1.0], auto for 0.7
+mintpy.networkInversion.minTempCoh  = 0.5 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+mintpy.network.excludeIfgIndex = 22,31,32,54,64,67,68,69,70,71,72,73,75,79,80,81,82,84,85,88,93,94,95,102,104,105,108,120,121,125,126
+mintpy.network.keepMinSpanTree = yes
+mintpy.network.tempBaseMax     = 360  #[1-inf, no], auto for no, maximum temporal baseline 
+
+# reference point
+mintpy.reference.lalo          = 33.760040,-118.361939   #[31.8,130.8 / auto]
